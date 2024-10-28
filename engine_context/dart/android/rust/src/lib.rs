@@ -40,7 +40,6 @@ pub unsafe extern "C" fn JNI_OnLoad(vm: *mut jni_sys::JavaVM, _reserved: *mut c_
 
         let class_name = b"io/flutter/embedding/engine/FlutterJNI\0";
         let class = (*(*env)).FindClass.unwrap_unchecked()(env, class_name.as_ptr() as *const _);
-
         let meta_class = (*(*env)).GetObjectClass.unwrap_unchecked()(env, class);
         let method_id = (*(*env)).GetMethodID.unwrap_unchecked()(
             env,
